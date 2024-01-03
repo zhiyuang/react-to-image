@@ -76,7 +76,7 @@ export const persistDimensions = (node) => {
   if (node.type === 'TEXT_INSTANCE') return node;
 
   const yogaNode = node.yogaNode;
-  console.log(66666, yogaNode.getComputedMargin(Yoga.EDGE_LEFT), yogaNode.getComputedMargin(Yoga.EDGE_RIGHT) )
+
   const box = {
     marginLeft: yogaNode.getComputedMargin(Yoga.EDGE_LEFT),
     marginRight: yogaNode.getComputedMargin(Yoga.EDGE_RIGHT),

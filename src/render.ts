@@ -2,7 +2,6 @@ import { loadImage, CanvasRenderingContext2D } from 'canvas';
 
 export const renderNode = async (ctx: CanvasRenderingContext2D, node) => {
   ctx.save();
-  console.log(111, node.type)
   const hasBackground = !!node.box && !!node.style.backgroundColor;
 
   if (hasBackground) {
@@ -10,10 +9,7 @@ export const renderNode = async (ctx: CanvasRenderingContext2D, node) => {
     clipNode(ctx, node);
     const { top, left, width, height } = node.box;
     ctx.fillStyle = node.style.backgroundColor;
-    ctx.beginPath();
-    ctx.rect(left, top, width, height);
-    ctx.fill();
-    ctx.save();
+    ctx.fillRect(left, top, width, height);
     ctx.restore();
   }
 
@@ -27,7 +23,6 @@ export const renderNode = async (ctx: CanvasRenderingContext2D, node) => {
     ctx.save();
 
     for (const child of node.children) {
-      console.log(11111111222, child, node.box.left, node.box.right)
       ctx.font = 'bold 30px Impact';
       ctx.fillStyle = 'white';
       ctx.fillText(child.value, node.box.left, node.box.top + 60);
@@ -75,6 +70,7 @@ const clipNode = (ctx: CanvasRenderingContext2D, node) => {
   const rtr = Math.min(borderTopRightRadius, 0.5 * width, 0.5 * height);
   const ctr = rtr * (1.0 - KAPPA);
 
+  ctx.beginPath();
   ctx.moveTo(left + rtr, top);
   ctx.lineTo(left + width - rtr, top);
   ctx.bezierCurveTo(
@@ -123,5 +119,3 @@ const clipNode = (ctx: CanvasRenderingContext2D, node) => {
   ctx.closePath();
   ctx.clip();
 };
-
-export default clipNode;
