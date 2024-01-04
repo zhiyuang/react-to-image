@@ -23,9 +23,12 @@ export const renderNode = async (ctx: CanvasRenderingContext2D, node) => {
     ctx.save();
 
     for (const child of node.children) {
-      ctx.font = 'bold 30px Impact';
-      ctx.fillStyle = 'white';
-      ctx.fillText(child.value, node.box.left, node.box.top + 60);
+      ctx.textBaseline = 'middle';
+      if (node.style.font)
+        ctx.font = node.style.font;
+      if (node.style.color)
+        ctx.fillStyle = node.style.color;
+      ctx.fillText(child.value, node.box.left, node.box.top);
     }
 
     ctx.restore();

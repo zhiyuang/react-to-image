@@ -2,7 +2,7 @@ import stylesheet from '@react-pdf/stylesheet';
 
 export const resolveStyles = (container) => {
   const containerStyle = { width: container.style.width, height: container.style.height, orientation: 'portrait' };
-  resolveNodeStyles(containerStyle)(container);
+  return resolveNodeStyles(containerStyle)(container);
 }
 
 const resolveNodeStyles = (containerStyle) => (node) => {

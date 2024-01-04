@@ -39,24 +39,30 @@ renderToStream(
             backgroundColor: "black",
             width: 90,
             height: 60,
-            borderRadius: 5
+            borderRadius: 5,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          <Text>test1</Text>
+          <Text style={{ color: 'white' }}>test1</Text>
         </View>
         <View
           style={{
             backgroundColor: "blue",
             width: 90,
             height: 60,
-            borderRadius: 5
+            borderRadius: 5,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          <Text>test5</Text>
+          <Text style={{ color: 'white' }}>test5</Text>
         </View>
       </View>
     </View>
   </Container>
-).then(buffer => {
-  writeFileSync('./test.png', buffer);
+).then((buffer) => {
+  writeFileSync("./test.png", buffer);
 });

@@ -25,14 +25,14 @@ export const renderToStream = async (element) => {
   );
 
   let result: any = resolveStyles(root.container);
-  result = createYogaNodes(root.container);
+  const canvas = createCanvas(result.style.width, result.style.height);
+  const ctx = canvas.getContext("2d");
+
+  result = createYogaNodes(result, ctx);
   result.yogaNode.calculateLayout();
 
   persistDimensions(result);
-  // console.log(3333, JSON.stringify(result));
 
-  const canvas = createCanvas(result.style.width, result.style.height);
-  const ctx = canvas.getContext("2d");
   await renderNode(ctx, result);
 
   const buf = canvas.toBuffer();

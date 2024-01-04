@@ -53,7 +53,25 @@ const setYogaValues = (node) => {
   }
 };
 
-export const createYogaNodes = (node) => {
+const setMeasureFunc = (node, ctx) => {
+  const { yogaNode } = node;
+
+  if (node.type === 'Text') {
+    ctx.save();
+    if (node.style.font) {
+      ctx.font = node.style.font;
+    }
+    const result = ctx.measureText(node.children[0].value);
+    yogaNode.setMeasureFunc(() => ({ width: result.width, height: 0 }));
+    ctx.restore();
+  }
+
+  // if (node.type === 'Image') {
+  //   yogaNode.setMeasureFunc(() => ({ width: 40, height: 40 }));
+  // }
+};
+
+export const createYogaNodes = (node, ctx) => {
   const yogaNode = Yoga.Node.create();
 
   node.yogaNode = yogaNode;
@@ -62,12 +80,14 @@ export const createYogaNodes = (node) => {
 
   if (node.type !== 'Text' && node.children) {
     node.children = node.children.map(node => {
-      const nodeWithYoga = createYogaNodes(node);
+      const nodeWithYoga = createYogaNodes(node, ctx);
       yogaNode.insertChild(nodeWithYoga.yogaNode, yogaNode.getChildCount());
 
       return nodeWithYoga;
     });
   }
+
+  setMeasureFunc(node, ctx);
 
   return node;
 }
