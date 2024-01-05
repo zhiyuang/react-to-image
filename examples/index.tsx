@@ -43,6 +43,7 @@ renderToStream(
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            border: '1px solid green'
           }}
         >
           <Text style={{ color: 'white' }}>test1</Text>

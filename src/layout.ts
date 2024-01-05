@@ -1,42 +1,61 @@
-import * as Yoga from '@react-pdf/yoga/dist/index';
+import * as Yoga from "@react-pdf/yoga/dist/index";
 
 const ALIGN = {
-  'flex-start': Yoga.ALIGN_FLEX_START,
+  "flex-start": Yoga.ALIGN_FLEX_START,
   center: Yoga.ALIGN_CENTER,
-  'flex-end': Yoga.ALIGN_FLEX_END,
+  "flex-end": Yoga.ALIGN_FLEX_END,
   stretch: Yoga.ALIGN_STRETCH,
   baseline: Yoga.ALIGN_BASELINE,
-  'space-between': Yoga.ALIGN_SPACE_BETWEEN,
-  'space-around': Yoga.ALIGN_SPACE_AROUND,
+  "space-between": Yoga.ALIGN_SPACE_BETWEEN,
+  "space-around": Yoga.ALIGN_SPACE_AROUND,
 };
 
 const JUSTIFY_CONTENT = {
   center: Yoga.JUSTIFY_CENTER,
-  'flex-end': Yoga.JUSTIFY_FLEX_END,
-  'space-between': Yoga.JUSTIFY_SPACE_BETWEEN,
-  'space-around': Yoga.JUSTIFY_SPACE_AROUND,
-  'space-evenly': Yoga.JUSTIFY_SPACE_EVENLY,
+  "flex-end": Yoga.JUSTIFY_FLEX_END,
+  "space-between": Yoga.JUSTIFY_SPACE_BETWEEN,
+  "space-around": Yoga.JUSTIFY_SPACE_AROUND,
+  "space-evenly": Yoga.JUSTIFY_SPACE_EVENLY,
 };
 
 const FLEX_DIRECTIONS = {
   row: Yoga.FLEX_DIRECTION_ROW,
-  'row-reverse': Yoga.FLEX_DIRECTION_ROW_REVERSE,
-  'column-reverse': Yoga.FLEX_DIRECTION_COLUMN_REVERSE,
+  "row-reverse": Yoga.FLEX_DIRECTION_ROW_REVERSE,
+  "column-reverse": Yoga.FLEX_DIRECTION_COLUMN_REVERSE,
 };
 
 const setYogaValues = (node) => {
   if (!node.style) return;
+  console.log(666, node.style.borderTopWidth, node.style.borderBottomWidth)
   // console.log(222222, node.style.marginLeft, node.style.marginRight, node.style.marginTop, node.style.marginBottom)
   node.style.width && node.yogaNode.setWidth(node.style.width);
   node.style.height && node.yogaNode.setHeight(node.style.height);
-  node.style.marginLeft && node.yogaNode.setMargin(Yoga.EDGE_LEFT, node.style.marginLeft);
-  node.style.marginRight && node.yogaNode.setMargin(Yoga.EDGE_RIGHT, node.style.marginRight);
-  node.style.marginTop && node.yogaNode.setMargin(Yoga.EDGE_TOP, node.style.marginTop);
-  node.style.marginBottom && node.yogaNode.setMargin(Yoga.EDGE_BOTTOM, node.style.marginBottom);
-  node.style.paddingLeft && node.yogaNode.setMargin(Yoga.EDGE_LEFT, node.style.paddingLeft);
-  node.style.paddingRight && node.yogaNode.setMargin(Yoga.EDGE_RIGHT, node.style.paddingRight);
+  node.style.marginLeft &&
+    node.yogaNode.setMargin(Yoga.EDGE_LEFT, node.style.marginLeft);
+  node.style.marginRight &&
+    node.yogaNode.setMargin(Yoga.EDGE_RIGHT, node.style.marginRight);
+  node.style.marginTop &&
+    node.yogaNode.setMargin(Yoga.EDGE_TOP, node.style.marginTop);
+  node.style.marginBottom &&
+    node.yogaNode.setMargin(Yoga.EDGE_BOTTOM, node.style.marginBottom);
+  node.style.paddingLeft &&
+    node.yogaNode.setMargin(Yoga.EDGE_LEFT, node.style.paddingLeft);
+  node.style.paddingRight &&
+    node.yogaNode.setMargin(Yoga.EDGE_RIGHT, node.style.paddingRight);
+  node.style.paddingTop &&
+    node.yogaNode.setPadding(Yoga.EDGE_TOP, node.style.paddingTop);
+  node.style.paddingBottom &&
+    node.yogaNode.setPadding(Yoga.EDGE_BOTTOM, node.style.paddingBottom);
+  node.style.borderLeftWidth &&
+    node.yogaNode.setBorder(Yoga.EDGE_LEFT, node.style.borderLeftWidth);
+  node.style.borderRightWidth &&
+    node.yogaNode.setBorder(Yoga.EDGE_RIGHT, node.style.borderRightWidth);
+  node.style.borderTopWidth &&
+    node.yogaNode.setBorder(Yoga.EDGE_TOP, node.style.borderTopWidth);
+  node.style.borderBottomWidth &&
+    node.yogaNode.setBorder(Yoga.EDGE_BOTTOM, node.style.borderBottomWidth);
 
-  if (node.style.display === 'flex') {
+  if (node.style.display === "flex") {
     node.yogaNode.setDisplay(Yoga.DISPLAY_FLEX);
   }
 
@@ -56,7 +75,7 @@ const setYogaValues = (node) => {
 const setMeasureFunc = (node, ctx) => {
   const { yogaNode } = node;
 
-  if (node.type === 'Text') {
+  if (node.type === "Text") {
     ctx.save();
     if (node.style.font) {
       ctx.font = node.style.font;
@@ -78,8 +97,8 @@ export const createYogaNodes = (node, ctx) => {
 
   setYogaValues(node);
 
-  if (node.type !== 'Text' && node.children) {
-    node.children = node.children.map(node => {
+  if (node.type !== "Text" && node.children) {
+    node.children = node.children.map((node) => {
       const nodeWithYoga = createYogaNodes(node, ctx);
       yogaNode.insertChild(nodeWithYoga.yogaNode, yogaNode.getChildCount());
 
@@ -90,22 +109,24 @@ export const createYogaNodes = (node, ctx) => {
   setMeasureFunc(node, ctx);
 
   return node;
-}
+};
 
 export const persistDimensions = (node) => {
-  if (node.type === 'TEXT_INSTANCE') return node;
+  if (node.type === "TEXT_INSTANCE") return node;
 
   const yogaNode = node.yogaNode;
-
+  console.log(999, yogaNode.getComputedBorder(Yoga.EDGE_TOP), yogaNode.getComputedBorder(Yoga.EDGE_RIGHT), yogaNode.getComputedBorder(Yoga.EDGE_BOTTOM), yogaNode.getComputedBorder(Yoga.EDGE_LEFT))
   const box = {
-    marginLeft: yogaNode.getComputedMargin(Yoga.EDGE_LEFT),
-    marginRight: yogaNode.getComputedMargin(Yoga.EDGE_RIGHT),
+    borderTopWidth: yogaNode.getComputedBorder(Yoga.EDGE_TOP),
+    borderRightWidth: yogaNode.getComputedBorder(Yoga.EDGE_RIGHT),
+    borderBottomWidth: yogaNode.getComputedBorder(Yoga.EDGE_BOTTOM),
+    borderLeftWidth: yogaNode.getComputedBorder(Yoga.EDGE_LEFT),
     top: yogaNode.getComputedTop(),
     right: yogaNode.getComputedRight(),
     bottom: yogaNode.getComputedBottom(),
     left: yogaNode.getComputedLeft(),
     width: yogaNode.getComputedWidth(),
-    height: yogaNode.getComputedHeight()
+    height: yogaNode.getComputedHeight(),
   };
 
   node.box = box;
@@ -115,4 +136,4 @@ export const persistDimensions = (node) => {
   node.children = node.children.map(persistDimensions);
 
   return node;
-}
+};

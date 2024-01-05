@@ -1,4 +1,5 @@
 import { loadImage, CanvasRenderingContext2D } from 'canvas';
+import renderBorders from './renderBorders';
 
 export const renderNode = async (ctx: CanvasRenderingContext2D, node) => {
   ctx.save();
@@ -12,6 +13,8 @@ export const renderNode = async (ctx: CanvasRenderingContext2D, node) => {
     ctx.fillRect(left, top, width, height);
     ctx.restore();
   }
+
+  renderBorders(ctx, node);
 
   if (node.type === 'Image') {
     ctx.save();
