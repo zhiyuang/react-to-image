@@ -26,8 +26,7 @@ const FLEX_DIRECTIONS = {
 
 const setYogaValues = (node) => {
   if (!node.style) return;
-  console.log(666, node.style.borderTopWidth, node.style.borderBottomWidth)
-  // console.log(222222, node.style.marginLeft, node.style.marginRight, node.style.marginTop, node.style.marginBottom)
+
   node.style.width && node.yogaNode.setWidth(node.style.width);
   node.style.height && node.yogaNode.setHeight(node.style.height);
   node.style.marginLeft &&
@@ -115,7 +114,7 @@ export const persistDimensions = (node) => {
   if (node.type === "TEXT_INSTANCE") return node;
 
   const yogaNode = node.yogaNode;
-  console.log(999, yogaNode.getComputedBorder(Yoga.EDGE_TOP), yogaNode.getComputedBorder(Yoga.EDGE_RIGHT), yogaNode.getComputedBorder(Yoga.EDGE_BOTTOM), yogaNode.getComputedBorder(Yoga.EDGE_LEFT))
+
   const box = {
     borderTopWidth: yogaNode.getComputedBorder(Yoga.EDGE_TOP),
     borderRightWidth: yogaNode.getComputedBorder(Yoga.EDGE_RIGHT),

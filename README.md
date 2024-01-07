@@ -1,3 +1,17 @@
+## Early Stage
+This project is still in early stage. The goal is to prove the idea of using React components to render in Node canvas. 
+
+## Features
+
+* Support React components (View, Image, Text).
+* Support flex layout.
+* Support border drawing.
+
+## Simple Example
+
+![](./examples/helloworld.png)
+
+```tsx
 import * as React from "react";
 import { writeFileSync } from "fs";
 import { Container, View, Image, Text } from "../src/components";
@@ -58,7 +72,6 @@ renderToStream(
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            border: '1px solid green'
           }}
         >
           <Text style={{ color: 'white', font: '30px solid' }}>World</Text>
@@ -69,3 +82,9 @@ renderToStream(
 ).then((buffer) => {
   writeFileSync(__dirname + "/helloworld.png", buffer);
 });
+
+```
+
+## License
+
+MIT

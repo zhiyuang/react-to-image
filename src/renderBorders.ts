@@ -654,7 +654,6 @@ const renderBorders = (ctx: CanvasRenderingContext2D, node) => {
   // ctx.strokeOpacity(opacity);
 
   if (borderTopWidth) {
-    console.log(777777)
     ctx.save();
     // clipBorderTop(ctx, node.box, style, rtr, rtl);
     fillBorderTop(ctx, node.box, style, rtr, rtl);
@@ -662,7 +661,6 @@ const renderBorders = (ctx: CanvasRenderingContext2D, node) => {
   }
 
   if (borderRightWidth) {
-    console.log(777777)
     ctx.save();
     // clipBorderRight(ctx, node.box, style, rtr, rbr);
     fillBorderRight(ctx, node.box, style, rtr, rbr);
