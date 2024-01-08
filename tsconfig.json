@@ -1,8 +1,11 @@
 {
   "compilerOptions": {
-    "lib": ["ES2022"],
+    "declaration": true,
+    "declarationDir": "dist",
     "esModuleInterop": true,
-    "jsx": "react"
+    "jsx": "react",
+    "lib": ["ES2022"],
+    "rootDir": "src"
   },
   "ts-node": {
     "esm": true,

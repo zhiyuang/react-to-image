@@ -2,7 +2,6 @@
   "name": "react-canvas-renderer",
   "version": "0.1.0",
   "description": "",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "build": "rollup -c"
