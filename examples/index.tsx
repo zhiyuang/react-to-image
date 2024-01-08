@@ -1,7 +1,7 @@
 import * as React from "react";
 import { writeFileSync } from "fs";
-import { Container, View, Image, Text } from "../src/components";
-import { renderToStream } from "../src/index";
+import { Container, View, Image, Text } from "react-to-image";
+import { renderToStream } from "react-to-image";
 
 renderToStream(
   <Container style={{ width: 500, height: 500, backgroundColor: "orange" }}>

@@ -4,9 +4,9 @@
     "declarationDir": "dist",
     "esModuleInterop": true,
     "jsx": "react",
-    "lib": ["ES2022"],
-    "rootDir": "src"
+    "lib": ["ES2022"]
   },
+  "include": ["src"],
   "ts-node": {
     "esm": true,
     "experimentalSpecifierResolution": "node",
