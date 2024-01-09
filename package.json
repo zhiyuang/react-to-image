@@ -2,12 +2,24 @@
   "name": "react-canvas-renderer",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/react-to-image.cjs.js",
+  "module": "./dist/react-to-image.es.js",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "watch": "rollup -c -w"
   },
-  "keywords": [],
-  "author": "",
+  "browser": {
+    "./dist/react-to-image.es.js": "./dist/react-to-image.browser.es.js",
+    "./dist/react-to-image.cjs.js": "./dist/react-to-image.browser.cjs.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": ["react", "image"],
+  "author": {
+    "name": "Zhiyuan Guo",
+    "email": "zyguo1230@gmail.com"
+  },
   "license": "MIT",
   "dependencies": {
     "@react-pdf/stylesheet": "^4.1.8",
@@ -17,6 +29,7 @@
     "scheduler": "^0.23.0"
   },
   "devDependencies": {
+    "@rollup/plugin-replace": "^5.0.5",
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/node": "^20.10.6",
     "@types/react-reconciler": "~0.28.8",

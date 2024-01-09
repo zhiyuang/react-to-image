@@ -1,7 +1,7 @@
 import ReactFiberReconciler, { HostConfig } from "react-reconciler";
 import { DefaultEventPriority } from 'react-reconciler/constants';
 
-const propsEqual = (a, b) => {
+const propsEqual = (a: IProps, b: IProps) => {
   const oldPropsKeys = Object.keys(a);
   const newPropsKeys = Object.keys(b);
 

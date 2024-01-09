@@ -5,6 +5,8 @@ import { resolveStyles } from "./style";
 import { createYogaNodes, persistDimensions } from "./layout";
 import { renderNode } from './render';
 
+declare var BROWSER: boolean;
+
 export const renderToStream = async (element) => {
   const root = { type: "ROOT", container: null, children: [] };
   const renderer = createRenderer();
@@ -25,8 +27,16 @@ export const renderToStream = async (element) => {
   );
 
   let result: any = resolveStyles(root.container);
-  const canvas = createCanvas(result.style.width, result.style.height);
+
+  let canvas;
+  if (BROWSER) {
+    canvas = new OffscreenCanvas(result.style.width, result.style.height);
+  } else {
+    canvas = createCanvas(result.style.width, result.style.height);
+  }
+
   const ctx = canvas.getContext("2d");
+  
 
   result = createYogaNodes(result, ctx);
   result.yogaNode.calculateLayout();
@@ -35,7 +45,9 @@ export const renderToStream = async (element) => {
 
   await renderNode(ctx, result);
 
-  const buf = canvas.toBuffer();
-
-  return buf;
+  if (BROWSER) {
+    return canvas.convertToBlob();
+  } else {
+    return canvas.toBuffer();
+  }
 };
