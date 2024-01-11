@@ -1,5 +1,5 @@
 {
-  "name": "react-to-image",
+  "name": "react2image",
   "version": "0.1.0",
   "description": "",
   "main": "./dist/react-to-image.cjs.js",
@@ -21,6 +21,10 @@
     "canvas",
     "node-canvas"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhiyuang/react-to-image"
+  },
   "author": {
     "name": "Zhiyuan Guo",
     "email": "zyguo1230@gmail.com"
