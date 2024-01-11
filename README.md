@@ -9,7 +9,7 @@ This project is still in early stage. The goal is to prove the idea of using Rea
 
 ## Simple Example
 
-![](./examples/helloworld.png)
+![](./examples/node/helloworld.png)
 
 ```tsx
 import * as React from "react";

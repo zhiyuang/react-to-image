@@ -1,5 +1,5 @@
 {
-  "name": "react-canvas-renderer",
+  "name": "react-to-image",
   "version": "0.1.0",
   "description": "",
   "main": "./dist/react-to-image.cjs.js",
@@ -18,7 +18,8 @@
   ],
   "keywords": [
     "react",
-    "image"
+    "canvas",
+    "node-canvas"
   ],
   "author": {
     "name": "Zhiyuan Guo",
