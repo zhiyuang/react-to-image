@@ -1,6 +1,6 @@
 {
   "name": "react2image",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "./dist/react-to-image.cjs.js",
   "module": "./dist/react-to-image.es.js",
@@ -8,7 +8,7 @@
     "build": "rollup -c",
     "watch": "rollup -c -w"
   },
-  "types": "",
+  "types": "index.d.ts",
   "browser": {
     "./dist/react-to-image.es.js": "./dist/react-to-image.browser.es.js",
     "./dist/react-to-image.cjs.js": "./dist/react-to-image.browser.cjs.js"

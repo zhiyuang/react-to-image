@@ -1,6 +1,6 @@
 import * as React from "react";
 import { writeFileSync } from "fs";
-import { renderToBuffer, Canvas, View, Image, Text } from "../../src/index";
+import { renderToBuffer, Canvas, View, Image, Text } from "react2image";
 
 renderToBuffer(
   <Canvas width={500} height={500} backgroundColor='orange'>
