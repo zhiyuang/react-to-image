@@ -16,7 +16,11 @@ export default [
       },
     ],
     plugins: [
-      typescript()
+      typescript(),
+      replace({
+        preventAssignment: true,
+        BROWSER: JSON.stringify(false),
+      }),
     ],
     external: [
       "canvas",

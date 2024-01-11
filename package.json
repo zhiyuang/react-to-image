@@ -6,7 +6,8 @@
   "module": "./dist/react-to-image.es.js",
   "scripts": {
     "build": "rollup -c",
-    "watch": "rollup -c -w"
+    "watch": "rollup -c -w",
+    "publish:patch": "pnpm run build && npm version patch && npm publish"
   },
   "types": "index.d.ts",
   "browser": {

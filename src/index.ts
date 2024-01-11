@@ -51,7 +51,7 @@ const renderToCanvas = async (canvas, root) => {
 
 export const renderToBlob = async (element: React.ReactElement) => {
   if (!BROWSER) {
-    throw new Error('renderToBuffer is not support in nodejs environment')
+    throw new Error('renderToBlob is not support in nodejs environment')
   }
 
   const root = await reconcileRoot(element);
