@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
-    "declaration": true,
-    "declarationDir": "dist",
+    "declaration": false,
     "esModuleInterop": true,
     "jsx": "react",
     "lib": ["ES2022", "DOM"]

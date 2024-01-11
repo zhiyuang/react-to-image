@@ -14,11 +14,11 @@ This project is still in early stage. The goal is to prove the idea of using Rea
 ```tsx
 import * as React from "react";
 import { writeFileSync } from "fs";
-import { Container, View, Image, Text } from "../src/components";
+import { Canvas, View, Image, Text } from "../src/components";
 import { renderToStream } from "../src/index";
 
 renderToStream(
-  <Container style={{ width: 500, height: 500, backgroundColor: "orange" }}>
+  <Canvas style={{ width: 500, height: 500, backgroundColor: "orange" }}>
     <View
       style={{
         width: 460,
@@ -78,7 +78,7 @@ renderToStream(
         </View>
       </View>
     </View>
-  </Container>
+  </Canvas>
 ).then((buffer) => {
   writeFileSync(__dirname + "/helloworld.png", buffer);
 });

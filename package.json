@@ -8,6 +8,7 @@
     "build": "rollup -c",
     "watch": "rollup -c -w"
   },
+  "types": "",
   "browser": {
     "./dist/react-to-image.es.js": "./dist/react-to-image.browser.es.js",
     "./dist/react-to-image.cjs.js": "./dist/react-to-image.browser.cjs.js"
@@ -15,7 +16,10 @@
   "files": [
     "dist"
   ],
-  "keywords": ["react", "image"],
+  "keywords": [
+    "react",
+    "image"
+  ],
   "author": {
     "name": "Zhiyuan Guo",
     "email": "zyguo1230@gmail.com"
@@ -32,10 +36,12 @@
     "@rollup/plugin-replace": "^5.0.5",
     "@rollup/plugin-typescript": "^11.1.5",
     "@types/node": "^20.10.6",
+    "@types/react": "^18.2.47",
     "@types/react-reconciler": "~0.28.8",
     "@types/scheduler": "~0.16.8",
     "react": "^18.2.0",
     "rollup": "^4.9.4",
+    "rollup-plugin-copy": "^3.5.0",
     "tslib": "^2.6.2",
     "typescript": "^5.3.3"
   },

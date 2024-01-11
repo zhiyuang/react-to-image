@@ -15,7 +15,9 @@ export default [
         exports: "named",
       },
     ],
-    plugins: [typescript()],
+    plugins: [
+      typescript()
+    ],
     external: [
       "canvas",
       "react-reconciler",
