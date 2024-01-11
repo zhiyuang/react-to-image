@@ -146,10 +146,10 @@ declare namespace ReactToImage {
   class Text extends React.Component<React.PropsWithChildren<TextProps>> {}
 }
 
-export declare const Canvas: ReactToImage.Canvas;
-export declare const View: ReactToImage.View;
-export declare const Image: ReactToImage.Image;
-export declare const Text: ReactToImage.Text;
+export declare const Canvas: typeof ReactToImage.Canvas;
+export declare const View: typeof ReactToImage.View;
+export declare const Image: typeof ReactToImage.Image;
+export declare const Text: typeof ReactToImage.Text;
 
 export declare const renderToBuffer: (root: React.ReactElement<ReactToImage.CanvasProps>) => Promise<Buffer>
 export declare const renderToBlob: (root: React.ReactElement<ReactToImage.CanvasProps>) => Promise<Blob>

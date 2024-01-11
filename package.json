@@ -1,6 +1,6 @@
 {
   "name": "react2image",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "",
   "main": "./dist/react-to-image.cjs.js",
   "module": "./dist/react-to-image.es.js",
