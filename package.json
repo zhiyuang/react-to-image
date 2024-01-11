@@ -14,7 +14,8 @@
     "./dist/react-to-image.cjs.js": "./dist/react-to-image.browser.cjs.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "index.d.ts"
   ],
   "keywords": [
     "react",
