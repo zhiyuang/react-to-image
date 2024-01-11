@@ -65,9 +65,9 @@ export const renderToBlob = async (element: React.ReactElement) => {
 
 
 export const renderToBuffer = async (element: React.ReactElement) => {
-  // if (BROWSER) {
-  //   throw new Error('renderToBuffer is not support in browser environment')
-  // }
+  if (BROWSER) {
+    throw new Error('renderToBuffer is not support in browser environment')
+  }
 
   const root = await reconcileRoot(element);
 
