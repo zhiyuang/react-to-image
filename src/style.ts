@@ -6,7 +6,7 @@ export const resolveStyles = (container) => {
 }
 
 const resolveNodeStyles = (containerStyle) => (node) => {
-  const style = stylesheet(containerStyle, node.style);
+  const style = stylesheet.default(containerStyle, node.style);
   node.style = style;
 
   if (!node.children) return node;

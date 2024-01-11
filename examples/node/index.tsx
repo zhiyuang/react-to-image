@@ -45,7 +45,7 @@ renderToBuffer(
             border: "3px solid green",
           }}
         >
-          <Text style={{ color: "white", fontStyle: "30px solid" }}>Hello</Text>
+          <Text style={{ color: "white", font: '30px solid' }}>Hello</Text>
         </View>
         <View
           style={{
@@ -59,7 +59,7 @@ renderToBuffer(
             border: "3px solid green",
           }}
         >
-          <Text style={{ color: "white", fontStyle: "30px solid" }}>World</Text>
+          <Text style={{ color: "white", font: '30px solid' }}>World</Text>
         </View>
       </View>
     </View>

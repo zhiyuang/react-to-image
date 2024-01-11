@@ -48,6 +48,7 @@ declare namespace ReactToImage {
   
     // Text
   
+    font?: string;
     fontSize?: number | string;
     fontFamily?: string;
     fontStyle?: string | 'normal';
