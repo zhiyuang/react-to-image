@@ -14,11 +14,10 @@ This project is still in early stage. The goal is to prove the idea of using Rea
 ```tsx
 import * as React from "react";
 import { writeFileSync } from "fs";
-import { Canvas, View, Image, Text } from "../src/components";
-import { renderToStream } from "../src/index";
+import { renderToBuffer, Canvas, View, Image, Text } from "react2image";
 
-renderToStream(
-  <Canvas style={{ width: 500, height: 500, backgroundColor: "orange" }}>
+renderToBuffer(
+  <Canvas width={500} height={500} backgroundColor='orange'>
     <View
       style={{
         width: 460,
@@ -44,9 +43,8 @@ renderToStream(
           display: "flex",
           alignItems: "center",
           justifyContent: "space-around",
-          backgroundColor: "grey",
           flexDirection: "row",
-          marginTop: 20
+          marginTop: 20,
         }}
       >
         <View
@@ -58,10 +56,10 @@ renderToStream(
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            border: '1px solid green'
+            border: "3px solid green",
           }}
         >
-          <Text style={{ color: 'white', font: '30px solid' }}>Hello</Text>
+          <Text style={{ color: "white", font: '30px solid' }}>Hello</Text>
         </View>
         <View
           style={{
@@ -72,9 +70,10 @@ renderToStream(
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            border: "3px solid green",
           }}
         >
-          <Text style={{ color: 'white', font: '30px solid' }}>World</Text>
+          <Text style={{ color: "white", font: '30px solid' }}>World</Text>
         </View>
       </View>
     </View>
